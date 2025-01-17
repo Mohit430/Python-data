@@ -1,6 +1,6 @@
 from django.db import models
 
-quali=[('b,tech', 'b-tech'),('m,tech', 'm-tech'),('b.sc', 'b-sc'),]
+quali=[('b-tech', 'b-tech'),('m-tech', 'm-tech'),('b-sc', 'b-sc'),]
 # Create your models here.
 class UserProfile(models.Model):
             username = models.CharField(max_length=30, null=True, unique=True,db_index=True,    
