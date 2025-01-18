@@ -1,5 +1,6 @@
 from django.db import models
 
+
 quali=[('b-tech', 'b-tech'),('m-tech', 'm-tech'),('b-sc', 'b-sc'),]
 # Create your models here.
 class UserProfile(models.Model):
@@ -14,3 +15,25 @@ class UserProfile(models.Model):
                                         
 def _str_(self):
     return self.bio
+
+
+
+
+# Create your models here.
+all_city = [('Bhopal','Bhopal'),('Indore','Indore'),('Jbp','Jbp'),('Rewa','Rewa'),]
+
+class Employee(models.Model):
+    sno = models.AutoField(primary_key=True)
+    emp_name = models.CharField(max_length=50,help_text="Enter user name",default='Guest')
+    emd_email = models.EmailField(unique=True)
+    emp_dob = models.DateField()
+    emp_creation_Date_Time = models.DateTimeField(auto_now_add=True)
+    emp_last_login = models.DateTimeField(auto_now = True)
+    emp_contact = models.IntegerField()
+    emp_city = models.CharField(max_length =50, choices=all_city,verbose_name='city')
+    emp_description = models.TextField()
+    emp_status = models.BooleanField()
+    emp_work_time = models.TimeField()
+    
+    def _str_(self):
+        return self.emp_name
